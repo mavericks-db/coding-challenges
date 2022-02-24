@@ -180,8 +180,68 @@ function translatePigLatin(str) {
 translatePigLatin("consonant");
 
 // Easy Coding Challenge #4 DNA Pairing
+function pairElement(str) {
+    let splitStr = str.split("");
+    let arr = [];
+
+    for (let i = 0; i < splitStr.length; i++) {
+        if (splitStr[i] == "G") {
+            arr[i] = ["G", "C"];
+        } else if (splitStr[i] == "C") {
+            arr[i] = ["C", "G"];
+        } else if (splitStr[i] == "A") {
+            arr[i] = ["A", "T"];
+        } else if (splitStr[i] == "T") {
+            arr[i] = ["T", "A"];
+        }
+    } return arr;
+}
+
+pairElement("GCG");
 
 // Easy Coding Challenge #5 Convert HTML Entities
+function convertHTML(str) {
+    let splitStr = str.split('');
+    for (let i = 0; i < splitStr.length; i++) {
+        switch (splitStr[i]) {
+            case "&":
+                splitStr[i] = "&amp;";
+                break;
+            case "<":
+                splitStr[i] = "&lt;";
+                break;
+            case ">":
+                splitStr[i] = "&gt;";
+                break;
+            case "'":
+                splitStr[i] = "&apos;"
+                break;
+            case '"':
+                splitStr[i] = "&quot;"
+                break;
+        }
+    }
+    return splitStr.join('');
+}
+
+convertHTML("Dolce & Gabbana");
 
 // Easy Coding Challenge #6 Sum All Primes
+function sumPrimes(num) {
+    function isPrime(num) {
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0)
+                return false;
+        }
+        return true;
+    }
+
+    let sum = 0;
+    for (let i = 2; i <= num; i++) {
+        if (isPrime(i))
+            sum += i;
+    }
+    return sum;
+}
+sumPrimes(10);
 
