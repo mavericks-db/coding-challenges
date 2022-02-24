@@ -119,3 +119,69 @@ function hurdleRace(k, height) {
 }
 
 // Easy Coding Challenge #1 Sum All Numbers in a Range
+function sumAll(arr) {
+    if (arr[0] > arr[1]) {
+      [arr[0], arr[1]] = [arr[1], arr[0]]
+  }
+
+  let lowerL = arr[0];
+  let upperL = arr[1];
+  let sum = 0;
+
+  for (let i = lowerL; i <= upperL; i++) {
+      sum += i;
+  }
+    return sum;
+
+    //Other solution
+    // let sum = 0;
+    // for (let i = Math.min(...arr); i <= Math.max(...arr); i++) {    
+    //     sum += i;
+    // }
+    // console.log(sum);
+}
+
+sumAll([1, 4]);
+
+// Easy Coding Challenge #2 Seek and Destroy
+function destroyer(arr) {
+    let remainElem = [];
+    let removeElem = Object.values(arguments).splice(1);
+    let newArr = Object.values(arguments)[0];
+    for (let i = 0; i < newArr.length; i++) {
+        let ar = newArr[i];
+        if (removeElem.indexOf(ar) === -1) {
+            remainElem.push(ar);
+        }
+    }
+    return remainElem;
+}
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+// Easy Coding Challenge #3 Pig Latin
+function translatePigLatin(str) {
+    let vowels = ["a", "e", "i", "o", "u"];
+    let index = 0;
+
+    if (vowels.includes(str[0])) {
+        return str + "way";
+    } else {
+        for (let i of str) {
+            if (vowels.includes(i)) {
+                index = str.indexOf(i);
+                break;
+            }
+        }
+        return str.slice(index) + str.slice(0, index) + "ay";
+    }
+}
+
+translatePigLatin("consonant");
+
+// Easy Coding Challenge #4 DNA Pairing
+
+// Easy Coding Challenge #5 Convert HTML Entities
+
+// Easy Coding Challenge #6 Sum All Primes
+
